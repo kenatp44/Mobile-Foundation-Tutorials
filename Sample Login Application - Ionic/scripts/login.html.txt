@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <img src="http://placehold.it/400x150" class="center">
+
+  <form [formGroup]="loginForm" (submit)="login()" novalidate>
+    <ion-item>
+      <ion-label stacked>Username</ion-label>
+      <ion-input formControlName="username" type="text" placeholder="Enter username here"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input formControlName="password" type="password" placeholder="Enter your password"></ion-input>
+    </ion-item>
+
+    <div padding>
+      <button ion-button outline block type="submit" [disabled]="!loginForm.valid">Sign In</button>
+    </div>
+  </form>
+
+  <div class="errorBox" [ngClass]="{hidden: !loginError}">{{loginError}}</div>
+  
+ </ion-content>

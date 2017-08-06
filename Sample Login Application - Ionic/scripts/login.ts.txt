@@ -1,0 +1,88 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController } from 'ionic-angular';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { HomePage } from '../home/home';
+
+@IonicPage({
+  name: 'login'
+})
+@Component({
+  selector: 'page-login',
+  templateUrl: 'login.html',
+})
+export class LoginPage {
+  public loginForm: FormGroup;
+  public loginError: string;
+  private AuthHandler: any;
+  private isChallanged:boolean = false;
+
+  securityCheckName: string = "UserLogin";
+
+  constructor(public navCtrl: NavController, 
+    public formBuilder: FormBuilder) {
+
+      console.log('==> Login Page: constructor');
+
+      this.loginForm = formBuilder.group({
+        username: ['', Validators.compose([Validators.required])],
+        password: ['', Validators.compose([Validators.minLength(3), Validators.required])]
+      });
+      // Initialize the authentication handler
+      this.AuthInit();
+      this.isChallanged = false;
+  }
+
+  ionViewDidLoad() {
+    console.log('==> Login Page: ionViewDidLoad!');
+  }
+
+  login() {
+    console.log('==> Login Page: login(), isChallenged? ', this.isChallanged);
+
+    if(!this.isChallanged) {
+      this.loginError = "";
+
+      WLAuthorizationManager.login(
+        this.securityCheckName, 
+        {
+          'username': this.loginForm.value.username, 
+          'password': this.loginForm.value.password
+        }
+      ).then((response) => {
+        console.log("==> LoginPage.login(): Login Success. ", response);
+        this.navCtrl.push(HomePage);
+
+      }, (error) => {
+        console.log("==> LoginPage.login(): Login failed. " + JSON.stringify(error));
+        this.isChallanged = true;
+      });
+     } else {
+      console.log("==> Login ELSE");
+      this.AuthHandler.submitChallengeAnswer({
+          'username': this.loginForm.value.username, 
+          'password': this.loginForm.value.password
+      });
+    }
+   }
+
+
+    AuthInit() {
+      console.log('==> In AuthInit()');
+ 
+      this.AuthHandler = WL.Client.createSecurityCheckChallengeHandler(this.securityCheckName);
+      this.AuthHandler.handleChallenge = ((response) => {
+        console.log('==> in handleChallenge().', JSON.stringify(response));
+        this.loginError = response.errorMsg; 
+        this.isChallanged = true;
+      });
+      this.AuthHandler.handleSuccess = ((response) => {
+        console.log('==> in handleSuccess().', JSON.stringify(response));
+        this.isChallanged = false;
+      });
+      this.AuthHandler.handleFailure = ((response) => {
+        console.log('==> in handleFailure().', JSON.stringify(response));
+        this.isChallanged = true;
+      });
+   }
+
+}
