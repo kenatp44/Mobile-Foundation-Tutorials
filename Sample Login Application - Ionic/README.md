@@ -174,8 +174,8 @@ This is a bit misleading as you will download a sample adapter that already prov
 	
 	```
 	Running command - failed!
-[WARN] Error while deduping npm dependencies. Attempting to continue...
-```
+	[WARN] Error while deduping npm dependencies. Attempting to continue...
+	```
 
  > I have logged a bug with the Ionic team. This appears to only happen with version 3.6.0 and not 3.5.0.  However if after some time your `ionic start` does not complete, you can simply `ctrl+c` to end. 
 
