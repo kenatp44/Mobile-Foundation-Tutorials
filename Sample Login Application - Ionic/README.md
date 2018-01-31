@@ -254,10 +254,10 @@ continue? (Y/n)`
 
 1. Add the following to the newly created file:
 
-	```
+		```
 	/// <reference path="../plugins/cordova-plugin-mfp/typings/worklight.d.ts" />
 	declare module '*';
-```
+	```
 
 	This will tell the compiler that the SDK is located in `../plugins/cordova-plugin-mfp/typings/worklight.d.ts` and provide code assist functions of the editor.
 
