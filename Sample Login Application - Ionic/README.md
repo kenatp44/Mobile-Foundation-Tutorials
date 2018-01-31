@@ -170,13 +170,13 @@ This is a bit misleading as you will download a sample adapter that already prov
 	
 	![](images/012-create-ionic-project.png)
 	
-	> **Note:** You may run into a situation where the process hangs when running the comman `npm dedupe`. If you let it run, you will see a message like:
-	
+	> **Note:** You may run into a situation where the process hangs when running the comman `npm dedupe`. If you let it run, you will see a message like:	
 	```
 	Running command - failed!
-[WARN] Error while deduping npm dependencies. Attempting to continue...
-```
- > I have logged a bug with the Ionic team. This appears to only happen with version 3.6.0 and not 3.5.0.  However if after some time your `ionic start` does not complete, you can simply `ctrl+c` to end. 
+	[WARN] Error while deduping npm dependencies. Attempting to continue...
+	```
+
+ 	> I have logged a bug with the Ionic team. This appears to only happen with version 3.6.0 and not 3.5.0.  However if after some time your `ionic start` does not complete, you can simply `ctrl+c` to end. 
 
 1. To verify that the application was created, change directory to `UserLoginApp` and type:
 
