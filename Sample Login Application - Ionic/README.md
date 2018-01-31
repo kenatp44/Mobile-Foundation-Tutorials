@@ -569,17 +569,17 @@ continue? (Y/n)`
 1. The local version of the Mobile Foundation Server started. Verify that the default server is pointing to localhost:
 
 	```
-mfpdev server info
-```
+	mfpdev server info
+	```
 
 	The output should be similar to the following with localhost set as the `[Default]`
 	
 	```
 	Name               URL
------------------------------------------------------------------------------------
-local              http://localhost:9080                                 [Default]
------------------------------------------------------------------------------------
-```
+	-----------------------------------------------------------------------------------
+	local              http://localhost:9080                                 [Default]
+	-----------------------------------------------------------------------------------
+	```
 
 1. Next register the application with the Mobile Foundation Server. Type the following:
 
