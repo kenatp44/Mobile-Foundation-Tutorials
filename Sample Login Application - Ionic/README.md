@@ -590,12 +590,12 @@ continue? (Y/n)`
 	The registration is complete when you see the message saying that the app has been registered for the appropriate platform. Since two platforms were added, Android & iOS, there should be two notifications.  The output of the `mfpdev app register` command should be similar to the following:
 	
 	```
-Verifying server configuration...
-Registering to server:'http://10.0.1.72:9080' runtime:'mfp'
-Updated config.xml file located at: /Users/KenAtIBM/Projects/UserLoginProject/UserLoginApp/config.xml
-Run 'cordova prepare' to propagate changes.
-Registered app for platform: android
-Registered app for platform: ios
+	Verifying server configuration...
+	Registering to server:'http://10.0.1.72:9080' runtime:'mfp'
+	Updated config.xml file located at: /Users/KenAtIBM/Projects/	UserLoginProject/UserLoginApp/config.xml
+	Run 'cordova prepare' to propagate changes.
+	Registered app for platform: android
+	Registered app for platform: ios
 	```
 	
 	Notice the line that instructs you to run the `cordova prepare` to propagate changes. This is because a file was downloaded for each platform that contains the information needed for the application to connect to the appropriate Mobile Foundation server and needs to be built into the application.
@@ -606,8 +606,8 @@ Registered app for platform: ios
 
 	```
 	> cordova prepare
-✔ Running command - done!
-```
+	✔ Running command - done!
+	```
 
 1. Open the server console to see that the application has been register for both iOS and Android. If the server console is already open, then refresh the browser page. Otherwise from a terminal session type `mfpdev server console`.
 
