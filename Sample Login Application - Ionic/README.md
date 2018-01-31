@@ -254,7 +254,7 @@ continue? (Y/n)`
 
 1. Add the following to the newly created file:
 
-		```
+	```
 	/// <reference path="../plugins/cordova-plugin-mfp/typings/worklight.d.ts" />
 	declare module '*';
 	```
